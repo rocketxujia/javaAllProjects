@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <modules>
+        <module>java-dubbo-common-interface</module>
+        <module>java-dubbo-demo1-annotation-provider</module>
+        <module>java-dubbo-demo2-xml-provider</module>
+        <module>java-dubbo-demo3-api-provider</module>
+        <module>java-dubbo-demo3-api-consumer</module>
+    </modules>
+    <parent>
+        <artifactId>java-all-projects</artifactId>
+        <groupId>com.xjsxj</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.xjsxj.dubbo</groupId>
+    <artifactId>java-dubbo-all-projects</artifactId>
+
+    <!--
+        所有项目级别：配置属性
+    -->
+    <properties>
+        <dubbo.common.interface.version>0.0.1-SNAPSHOT</dubbo.common.interface.version>
+    </properties>
+
+    <!--
+        Dubbo 项目级别：管理依赖包版本
+    -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- java-dubbo-common-interface  -->
+            <dependency>
+                <groupId>com.xjsxj.dubbo</groupId>
+                <artifactId>java-dubbo-common-interface</artifactId>
+                <version>${dubbo.common.interface.version}</version>
+            </dependency>
+            <!-- Apache Dubbo  -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-dependencies-bom</artifactId>
+                <version>${dubbo.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
